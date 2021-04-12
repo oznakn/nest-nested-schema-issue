@@ -1,11 +1,10 @@
-# Option 7
+# Option 8
 
 ## Not working
 
 ### Code:
 
 ```typescript
-@Schema({ _id: false })
 export class Name extends Document {
   @Prop()
   firstName: string;
@@ -14,11 +13,9 @@ export class Name extends Document {
   lastName: string;
 }
 
-export const NameSchema = SchemaFactory.createForClass(Name);
-
 @Schema()
 export class User extends Document {
-  @Prop([NameSchema])
+  @Prop([Name])
   names: [Name];
 }
 
