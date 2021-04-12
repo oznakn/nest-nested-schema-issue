@@ -1,4 +1,4 @@
-# Option 6
+# Option 7
 
 ## Not working
 
@@ -18,7 +18,7 @@ export const NameSchema = SchemaFactory.createForClass(Name);
 
 @Schema()
 export class User extends Document {
-  @Prop({ type: [{ type: NameSchema }] })
+  @Prop([NameSchema])
   names: [Name];
 }
 
