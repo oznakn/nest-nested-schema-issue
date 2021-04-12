@@ -1,17 +1,23 @@
-# Option 10
+# Option 11
 
-## Not working
+## Working
 
 ### Code:
 
 ```typescript
-export class Name extends Document {
+export class Name {
   firstName: string;
 
   lastName: string;
-}
 
-export const NameSchema = SchemaFactory.createForClass(Name);
+  constructor(partial: Partial<Name>) {
+    Object.assign(this, partial);
+  }
+
+  toObject() {
+    return this;
+  }
+}
 
 @Schema()
 export class User extends Document {

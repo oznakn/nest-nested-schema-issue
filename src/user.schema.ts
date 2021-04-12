@@ -1,13 +1,19 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
-export class Name extends Document {
+export class Name {
   firstName: string;
 
   lastName: string;
-}
 
-export const NameSchema = SchemaFactory.createForClass(Name);
+  constructor(partial: Partial<Name>) {
+    Object.assign(this, partial);
+  }
+
+  toObject() {
+    return this;
+  }
+}
 
 @Schema()
 export class User extends Document {
