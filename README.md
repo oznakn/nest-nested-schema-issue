@@ -1,4 +1,4 @@
-# Option 5
+# Option 6
 
 ## Not working
 
@@ -18,7 +18,7 @@ export const NameSchema = SchemaFactory.createForClass(Name);
 
 @Schema()
 export class User extends Document {
-  @Prop({ type: [{ type: Name }] })
+  @Prop({ type: [{ type: NameSchema }] })
   names: [Name];
 }
 
@@ -29,11 +29,10 @@ export const UserSchema = SchemaFactory.createForClass(User);
 ### The error:
 
 ````
-TypeError: Invalid schema configuration: `Name` is not a valid type within the array `names`.See http://bit.ly/mongoose-schematypes for a list of valid schema types.
-app_1    |     at Schema.interpretAsType (/usr/src/app/node_modules/mongoose/lib/schema.js:978:15)
-app_1    |     at Schema.path (/usr/src/app/node_modules/mongoose/lib/schema.js:680:27)
-app_1    |     at Schema.add (/usr/src/app/node_modules/mongoose/lib/schema.js:532:14)
-app_1    |     at new Schema (/usr/src/app/node_modules/mongoose/lib/schema.js:129:10)
-app_1    |     at Function.createForClass (/usr/src/app/node_modules/@nestjs/mongoose/dist/factories/schema.factory.js:11:16)
-app_1    |     at Object.<anonymous> (/usr/src/app/dist/user.schema.js:40:47)
+TypeError: Cannot read property 'plugin' of undefined
+app_1    |     at Name.Document.$__setSchema (/usr/src/app/node_modules/mongoose/lib/document.js:3043:10)
+app_1    |     at new Document (/usr/src/app/node_modules/mongoose/lib/document.js:85:10)
+app_1    |     at new Name (/usr/src/app/dist/user.schema.js:15:12)
+app_1    |     at AppService.getHello (/usr/src/app/dist/app.service.js:27:17)
+app_1    |     at AppController.getHello (/usr/src/app/dist/app.controller.js:20:32)
 ```
