@@ -1,4 +1,4 @@
-# Option 1
+# Option 2
 
 ## Not working
 
@@ -12,6 +12,8 @@ export class Name extends Document {
   @Prop()
   lastName: string;
 }
+
+export const NameSchema = SchemaFactory.createForClass(Name);
 
 @Schema()
 export class User extends Document {

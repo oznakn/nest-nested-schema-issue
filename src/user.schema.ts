@@ -9,6 +9,8 @@ export class Name extends Document {
   lastName: string;
 }
 
+export const NameSchema = SchemaFactory.createForClass(Name);
+
 @Schema()
 export class User extends Document {
   @Prop()
