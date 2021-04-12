@@ -1,4 +1,4 @@
-# Option 8
+# Option 9
 
 ## Not working
 
@@ -6,16 +6,21 @@
 
 ```typescript
 export class Name extends Document {
-  @Prop()
   firstName: string;
 
-  @Prop()
   lastName: string;
 }
 
 @Schema()
 export class User extends Document {
-  @Prop([Name])
+  @Prop({
+    type: [
+      {
+        firstname: String,
+        lastName: String,
+      },
+    ],
+  })
   names: [Name];
 }
 
